@@ -18,10 +18,15 @@ timer.load('example2.csv')
 
 Plotting can be done via:
 ```python
-    timer.plot()
+timer.plot()
 ```
 
 Run example.py and see some example plots!
+
+### Dependecies
+
+Standard Python libraries (typing, time, os, csv).
+matplotlib (optional) - for plotting.
 
 ### Precision
 

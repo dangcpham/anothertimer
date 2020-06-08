@@ -1,6 +1,5 @@
 from typing import List
 import time
-import glob
 import os
 import csv
 
