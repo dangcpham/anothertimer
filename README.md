@@ -23,6 +23,9 @@ timer.plot()
 
 Run example.py and see some example plots!
 
+## Installation
+Use pip: `pip install anothertimer`
+
 ### Dependecies
 
 Standard Python libraries (typing, time, os, csv).
