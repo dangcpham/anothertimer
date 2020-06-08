@@ -24,7 +24,7 @@ timer.plot()
 Run example.py and see some example plots!
 
 ## Installation
-Use pip: `pip install anothertimer`
+`pip install anothertimer`
 
 ### Dependecies
 
