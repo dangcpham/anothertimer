@@ -8,7 +8,6 @@ class Timer:
         """
         For creating a timer object. Example initialization timer = Timer().
         """
-        
         # start and end time
         self.t:List[float, float] = [0., 0.]
         
@@ -19,7 +18,7 @@ class Timer:
         """
         Store the result of tic and toc into the t_store list.
         """
-        self.t_store.append(self.t)
+        self.t_store.append([self.t[0], self.t[1], self.t[1] - self.t[0]])
         self.t:List[float, float] = [0., 0.]    
         
     def tic(self):
