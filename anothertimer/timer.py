@@ -10,33 +10,49 @@ class Timer:
         """
         # start and end time
         self.t:List[float, float] = [0., 0.]
-        
         # storing time
         self.t_store = []        
+        # current mode (either True or False)
+        self._mode = False
     
-    def __store(self):
+    def _store(self):
         """
         Store the result of tic and toc into the t_store list.
         """
-        self.t_store.append([self.t[0], self.t[1], self.t[1] - self.t[0]])
-        self.t:List[float, float] = [0., 0.]    
+        self.t_store.append([self.t[0], self.t[1], 
+                             self.t[1] - self.t[0]])
         
-    def tic(self):
+        
+    def tic(self) -> float:
         """
-        Begin the timer.
+        Begin the timer. If timer already running, act as stopwatch instead (
+            record the time, does not reset like toc does).
+        
+        Returns:
+            float: time elapsed since first tic.
         """
-        self.t[0] = time.time()
-    
+        if self._mode == False:
+            self.t[0] = time.time()
+            self._mode = True
+            return 0.0
+        else:
+            self.t[1] = time.time()
+            self._store()
+            return self.t[1] - self.t[0]
+                    
     def toc(self) -> float:
         """
         End the timer and store the time.
 
         Returns:
-            float: the run time (time elapsed).
-        """
-        time_end = time.time()
-        self.t[1] = time_end
-        self.__store()
+            float: time elapsed since first tic.
+        """        
+        self.t[1] = time.time()
+        self._store()
+        
+        # reset
+        self._mode = False
+        self.t:List[float, float] = [0., 0.]    
 
         return self.t_store[-1][1] - self.t_store[-1][0]
 

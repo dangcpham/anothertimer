@@ -14,11 +14,13 @@ def fib(n:int) -> int:
 timer = Timer()
 
 # time the Fibonacci run
-for i in range(33):
+for i in range(29):
     timer.tic()
     fib(i+1)
-    timer.toc()
+    end_time = timer.toc()
+    print(end_time)
 
+#print all results
 print(timer)
 # save the time
 timer.dump(filename='example.csv',mode='w')
@@ -29,12 +31,22 @@ fig, ax = timer.plot(plot_start_time=True, plot_avg=False)
 plt.savefig('example.pdf')
 plt.show()
 
-# set up another Timer object to read a file
+# set up stopwatch (one tic to start --> multiple tics --> toc)
 timer2 = Timer()
+timer2.tic()
+for i in range(29):
+    print(fib(i+1), timer2.tic())
+timer2.toc()
+fig, ax = timer2.plot(plot_start_time=True, plot_avg=False)
+plt.show() 
+    
+
+# set up another Timer object to read a file
+timer3 = Timer()
 
 # load the example run
-timer2.load('example2.csv')
-print(timer2)
-fig, ax = timer2.plot(plot_start_time=True, plot_avg=True)
+timer3.load('example2.csv')
+print(timer3)
+fig, ax = timer3.plot(plot_start_time=True, plot_avg=True)
 plt.savefig('example2.pdf')
 plt.show()
