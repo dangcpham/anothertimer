@@ -4,3 +4,4 @@ MANIFEST
 setup.py
 README
 setup.cfg
+MANIFEST.in

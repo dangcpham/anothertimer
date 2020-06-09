@@ -18,6 +18,7 @@ Saving and loading data:
 
 Plotting can be done via:
 ::
+
    timer.plot()
 
 Run example.py and see some example plots!
