@@ -14,9 +14,10 @@ def fib(n:int) -> int:
 timer = Timer()
 
 # time the Fibonacci run
-for i in range(50):
+for i in range(33):
     timer.tic()
-    print(i, fib(i+1), timer.toc())
+    fib(i+1)
+    timer.toc()
 
 print(timer)
 # save the time
