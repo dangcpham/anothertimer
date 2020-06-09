@@ -21,7 +21,7 @@ Plotting can be done via:
 
    timer.plot()
 
-Run example.py and see some example plots!
+Check out example.py for some more features (stopwatch/sections) and plots!
 
 Installation
 ============
