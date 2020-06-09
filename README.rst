@@ -1,8 +1,6 @@
 ================
 **anothertimer**
 ================
-Paragraph::
-
 Just another timer for code timing. anothertimer enables easy timing for code runs, saving timing data, and provide basic plotting capabilities. Example usage:
 .. code-block::
 
