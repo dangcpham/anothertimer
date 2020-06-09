@@ -158,3 +158,29 @@ class Timer:
         fig.tight_layout()
         
         return fig, ax
+    
+    def summarize(self) -> str:
+        output:str = ''
+        output += '\nDatetime format: DD/MM HH:MM:SS\n'
+        # formatting to a table form
+        fmt = '{: >15}  {: >15} {: >15}\n'
+        output += fmt.format('Start', 'End','Time (s)')
+        # unzip the data structure
+        start_t, end_t, runtime = zip(*self.t_store)
+        
+        for i, t in enumerate(start_t):
+            # convert time to local time for start_t
+            t = float(t)
+            local_t = time.localtime(t)
+            t1 = time.strftime("%d/%m %H:%M:%S", local_t)
+            # convert time to local time for end_t
+            t = float(end_t[i])
+            local_t = time.localtime(t)
+            t2 = time.strftime("%d/%m %H:%M:%S", local_t)
+            # output
+            output +=  fmt.format(t1, t2, 
+                                  round(float(runtime[i]),6))
+
+        return output
+    def __repr__(self):
+        return self.summarize()
