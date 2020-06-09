@@ -100,9 +100,8 @@ class Timer:
     def plot(self, plot_start_time:bool = True,
              plot_avg:bool = False):
         """
-        For plotting the runtimes. Needs matplotlib.
-
-        [extended_summary]
+        For plotting the runtimes. Needs matplotlib. Causes additional overhead
+        due to matplotlib plotting. Use discriminately.
 
         Args:
             plot_start_time (bool, optional): Second x-axis for labeling the 
@@ -176,6 +175,13 @@ class Timer:
         return fig, ax
     
     def summarize(self) -> str:
+        """
+        Output in a table format with columns start time, end time, elapsed
+        time.
+        
+        Returns:
+            str: the summarized timing result.
+        """
         output:str = ''
         output += '\nDatetime format: DD/MM HH:MM:SS\n'
         # formatting to a table form
@@ -198,5 +204,7 @@ class Timer:
                                   round(float(runtime[i]),6))
 
         return output
-    def __repr__(self):
+    
+    def __str__(self):
         return self.summarize()
+    

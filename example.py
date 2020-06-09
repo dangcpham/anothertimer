@@ -37,7 +37,7 @@ timer2.tic()
 for i in range(29):
     print(fib(i+1), timer2.tic())
 timer2.toc()
-fig, ax = timer2.plot(plot_start_time=True, plot_avg=False)
+fig, ax = timer2.plot(plot_start_time=False, plot_avg=False)
 plt.show() 
     
 

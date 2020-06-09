@@ -35,6 +35,13 @@ Dependecies
 1. Standard Python libraries (typing, time, os, csv).
 2. matplotlib (optional) - for plotting.
 
+Overhead
+========
+Measured by pstats on example.py, core functionalities causes minimal (<0.001s) 
+overhead. Plotting causes some overhead (due to matplotlib plotting, on the 
+order of a few seconds), so plot carefully.
+
+
 Precision
 =========
 
