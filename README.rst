@@ -2,7 +2,7 @@
 **anothertimer**
 ================
 Just another timer for code timing. anothertimer enables easy timing for code runs, saving timing data, and provide basic plotting capabilities. Example usage:
-.. code-block::
+::
 
    from anothertimer import Timer
    timer = Timer()
@@ -11,13 +11,13 @@ Just another timer for code timing. anothertimer enables easy timing for code ru
    timer.toc()
 
 Saving and loading data:
-.. code-block::
+::
 
    timer.dump('example.csv', mode='a')
    timer.load('example2.csv')
 
 Plotting can be done via:
-.. code-block::
+::
    timer.plot()
 
 Run example.py and see some example plots!
