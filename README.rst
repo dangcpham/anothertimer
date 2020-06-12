@@ -1,6 +1,8 @@
 ================
 **anothertimer**
 ================
+Repository: https://github.com/dangcpham/anothertimer
+
 Just another timer for code timing. anothertimer enables easy timing for code runs, saving timing data, and provides basic plotting capabilities. Example usage:
 ::
 
@@ -21,7 +23,7 @@ Plotting can be done via:
 
    timer.plot()
 
-Check out example.py for some more features (stopwatch/sections) and plots!
+Check out example.py on GitHub for some more features (stopwatch/sections) and plots!
 
 Installation
 ============

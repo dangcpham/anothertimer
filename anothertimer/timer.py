@@ -251,6 +251,8 @@ class Timer:
         Returns:
             str: the summarized timing result.
         """
+        from statistics import mean, stdev
+        
          # formatting to a table form
         fmt = '{: >15}  {: >15} {: >15}\n'
         output:str = '\nDatetime format: DD/MM HH:MM:SS\n'
@@ -264,6 +266,7 @@ class Timer:
             output += f'\nSection: {name}\n'    
             # unzip the data structure
             start_t, end_t, runtime = zip(*tlist)
+            runtime = list(map(float, runtime))
             
             for i, t in enumerate(start_t):
                 # convert time to local time for start_t
@@ -276,7 +279,11 @@ class Timer:
                 t2 = time.strftime("%d/%m %H:%M:%S", local_t)
                 # output
                 output +=  fmt.format(t1, t2, 
-                                    round(float(runtime[i]),6))
+                                    round(runtime[i],6))
+            
+            # print some basic stats
+            output += f'Mean: {round(mean(runtime),6)}\n'
+            output += f'Std. Dev.: {round(stdev(runtime),6)}\n'
 
         return output
     
