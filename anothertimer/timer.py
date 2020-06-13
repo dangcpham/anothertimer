@@ -283,7 +283,9 @@ class Timer:
             
             # print some basic stats
             output += f'Mean: {round(mean(runtime),6)}\n'
-            output += f'Std. Dev.: {round(stdev(runtime),6)}\n'
+            if len(runtime) > 1:
+                # can't do std dev with one data point
+                output += f'Std. Dev.: {round(stdev(runtime),6)}\n'
 
         return output
     
